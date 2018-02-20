@@ -1,0 +1,15 @@
+{
+    "id": "newsblur",
+    "name": "NewsBlur",
+    "version": "1.0.0",
+    "description": "NewsBlur",
+    "main": "index.js",
+    "author": "glob <glob@mozilla.com>",
+    "license": "MIT",
+    "repository": "https://github.com/glob/franz-newsblur",
+    "config": {
+      "serviceURL": "https://newsblur.com",
+      "hasDirectMessages": false,
+      "hasIndirectMessages": false
+    }
+  }
