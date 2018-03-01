@@ -9,7 +9,7 @@ module.exports = Franz => {
         nodes.forEach(function(e) {
             count = count + parseInt(e.textContent.trim(), 10);
         });
-        Franz.setBadge(count);
+        Franz.setBadge(0, count);
     };
     Franz.loop(getMessages);
 
