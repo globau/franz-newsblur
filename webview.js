@@ -15,15 +15,21 @@ module.exports = Franz => {
 
     // open story links in browser, not franz
     window.setInterval(function() {
+        document.querySelectorAll('.NB-story-titles div:not(.NB-selected) a[loc]').forEach(function(el) {
+            el.removeAttribute('loc');
+            el.removeEventListener('click', open_in_browser);
+        });
         document.querySelectorAll('.NB-story-titles .NB-selected a').forEach(function(el) {
             if (el.host !== window.location.host && !el.getAttribute('loc')) {
                 el.setAttribute('loc', el.href);
-                el.addEventListener('click', function(e) {
-                    window.open(this.getAttribute('loc'));
-                    e.stopPropagation();
-                    e.preventDefault();
-                });
+                el.addEventListener('click', open_in_browser);
             }
         });
     }, 250);
 };
+
+function open_in_browser(e) {
+    window.open(this.getAttribute('loc'));
+    e.stopPropagation();
+    e.preventDefault();
+}
